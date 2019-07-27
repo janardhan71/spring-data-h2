@@ -32,6 +32,11 @@ pipeline {
 			    }
             }
         }
+	stage('SonarQube analysis') {
+	    withSonarQubeEnv('SonarQube Server') {
+	      bat 'mvn sonar:sonar'
+	    } // submitted SonarQube taskId is automatically attached to the pipeline context
+	}
         stage('Package') {
             steps {
                 echo 'Packaging'
