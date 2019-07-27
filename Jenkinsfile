@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Sonar Scanner'
 			    withSonarQubeEnv('SonarQube Server') {
-			    	bat 'C:/Tools/sonar-scanner/bin/sonar-scanner'
+			    	bat 'mvn sonar:sonar'
 			    }
             }
         }
